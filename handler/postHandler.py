@@ -1,3 +1,5 @@
+import os
+
 def handle_POST(request):
     search = request.split("\n")[25].replace("\r", "")
     file_pdf = """
