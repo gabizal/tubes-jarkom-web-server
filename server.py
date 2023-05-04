@@ -1,9 +1,10 @@
 import threading
-
+# 25
 def threading_socket(connectionSocket):
     try:
         message = connectionSocket.recv(1024).decode()
         filename = message.split()[1]
+        print(message.split("\n"))
         response = handle_request(filename)
         connectionSocket.send(response.encode())
         connectionSocket.close()
@@ -14,13 +15,17 @@ def threading_socket(connectionSocket):
 def handle_request(filename):
     response_line = "HTTP/1.1 200 OK\r\n"
     content_type = "Content-Type: text/html\r\n\r\n"
-    print(filename[0])
-    if filename[0] == "/" or filename[0] == "/index.html":
+    if filename == "/" or filename == "/index.html":
         file = open("index.html", 'r')
+        message_body = file.read()
+        file.close()
+    elif filename == "/files.html":
+        file = open
     else:
         file = open("404.html", 'r')
-    message_body = file.read()
-    file.close()
+        message_body = file.read()
+        file.close()
+    
     response = response_line+content_type+message_body
     return response
 
