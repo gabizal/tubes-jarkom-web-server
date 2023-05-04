@@ -2,7 +2,7 @@ import threading
 from socket import *
 import sys
 import os
-# 25
+
 def threading_socket(connectionSocket):
     try:
         request = connectionSocket.recv(1024).decode()
@@ -107,7 +107,7 @@ def handle_POST(request):
 
 serverSocket = socket(AF_INET, SOCK_STREAM)
 serverAddress = "localhost"
-serverPort = 3444
+serverPort = 80
 
 # reuse port
 serverSocket.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
@@ -119,7 +119,4 @@ print(f"\n\nYou can Acces Your Website in http://{serverAddress}:{serverPort}\n\
 while True:
     connectionSocket, addr = serverSocket.accept()
     threading.Thread(target=threading_socket, args=(connectionSocket,)).start()
-    
-serverSocket.close()
-sys.exit()
 
