@@ -1,26 +1,26 @@
 from handler.getHandler import *
 from handler.postHandler import *
 
-def handle_request(request):
+def handleRequest(request):
 
     response_line = "HTTP/1.1 200 OK\r\n"
     content_type = "Content-Type: text/html\r\n\r\n"
-    message_body = handle_method(request)
+    message_body = handleMethod(request)
     
     response = response_line+content_type+message_body
     return response
 
-def handle_method(request):
+def handleMethod(request):
     method = request.split()[0]
     path = request.split()[1]
 
     methods = {
         "GET": {
-            "function": handle_GET,
+            "function": handleGET,
             "params": (path)
         },
         "POST": {
-            "function": handle_POST,
+            "function": handlePOST,
             "params": (request)
         }
     }

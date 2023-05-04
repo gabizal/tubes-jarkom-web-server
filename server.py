@@ -4,10 +4,10 @@ from handler.getHandler import *
 from handler.postHandler import *
 from handler.requestHandler import *
 
-def threading_socket(connectionSocket):
+def threadingSocket(connectionSocket):
     try:
         request = connectionSocket.recv(1024).decode()
-        response = handle_request(request)
+        response = handleRequest(request)
         connectionSocket.send(response.encode())
         connectionSocket.close()
     except IOError:
@@ -29,5 +29,5 @@ if __name__ == "__main__":
     while True:
         connectionSocket, addr = serverSocket.accept()
         print(type(connectionSocket))
-        threading.Thread(target=threading_socket, args=(connectionSocket,)).start()
+        threading.Thread(target=threadingSocket, args=(connectionSocket,)).start()
 

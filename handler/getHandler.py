@@ -1,4 +1,4 @@
-def handle_GET(path):
+def handleGET(path):
     path_dict = {
         "/": "views/index.html",
         "/files.html": "views/files.html"
