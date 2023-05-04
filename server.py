@@ -49,6 +49,12 @@ def handle_GET(path):
 
 def handle_POST(request):
     search = request.split("\n")[25].replace("\r", "")
+    file_pdf = """
+    <div class="p-3">
+        <i class="fa-solid fa-file-pdf" style="color: #c7c9cc;"></i>
+        <h5 style="font-family: 'Comic Sans MS';">{}</h5>
+    </div>
+    """
     html_body = """
         <!DOCTYPE html>
         <html lang="en">
@@ -56,6 +62,7 @@ def handle_POST(request):
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
             <script src="https://cdn.tailwindcss.com"></script>
             <title>Local Server</title>
             <style>
