@@ -107,7 +107,11 @@ def handle_POST(request):
 
 serverSocket = socket(AF_INET, SOCK_STREAM)
 serverAddress = "localhost"
-serverPort = 3443
+serverPort = 3444
+
+# reuse port
+serverSocket.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
+
 serverSocket.bind((serverAddress, serverPort))
 serverSocket.listen(5)
 #prepare server socket
