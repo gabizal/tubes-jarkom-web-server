@@ -25,26 +25,38 @@ def handle_request(request):
 def handle_method(request):
     method = request.split()[0]
     path = request.split()[1]
-    if method == "GET":
-        return handle_GET(path)
-    elif method == "POST":
-        return handle_POST(request)
-    else:
-        ...
+
+    methods = {
+        "GET": {
+            "function": handle_GET,
+            "params": (path)
+        },
+        "POST": {
+            "function": handle_POST,
+            "params": (request)
+        }
+    }
+
+    try:
+        method_handler = methods[method]
+        return method_handler["function"](method_handler["params"])
+    except KeyError:
+        return "Method Not Allowed"
 
 def handle_GET(path):
-    if path == "/" or path == "/index.html":
-        file = open("index.html", 'r')
-        message_body = file.read()
-        file.close()
-    elif path == "/files.html":
-        file = open("files.html", 'r')
-        message_body = file.read()
-        file.close()
-    else:
-        file = open("404.html", 'r')
-        message_body = file.read()
-        file.close()
+    path_dict = {
+        "/": "index.html",
+        "/files.html": "files.html"
+    }
+
+    try:
+        file = open(path_dict[path], 'r')
+    except (FileNotFoundError, KeyError):
+        file = open("404.html", 'r')    
+
+    message_body = file.read()
+    file.close()
+
     return message_body
 
 def handle_POST(request):
@@ -118,5 +130,6 @@ serverSocket.listen(5)
 print(f"\n\nYou can Acces Your Website in http://{serverAddress}:{serverPort}\n\n")
 while True:
     connectionSocket, addr = serverSocket.accept()
+    print(type(connectionSocket))
     threading.Thread(target=threading_socket, args=(connectionSocket,)).start()
 
