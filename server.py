@@ -28,6 +28,5 @@ if __name__ == "__main__":
     print(f"\n\nYou can Acces Your Website in http://{serverAddress}:{serverPort}\n\n")
     while True:
         connectionSocket, addr = serverSocket.accept()
-        print(type(connectionSocket))
         threading.Thread(target=threadingSocket, args=(connectionSocket,)).start()
 

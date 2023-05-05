@@ -19,7 +19,7 @@ def htmlRenderer(search, data):
         "document": "word",
         "archive": "archive",
     }
-    
+
     file_icon = """
     <div>
         <i class="fa-solid fa-file-{}" style="color: #c7c9cc;"></i>
@@ -30,6 +30,7 @@ def htmlRenderer(search, data):
     for key in database_file:
         for value in database_file[key]:
             file_icon += file_icon.format(database_icon[key], value)
+    print(file_icon)
 
     html_body = """
         <!DOCTYPE html>
@@ -43,12 +44,11 @@ def htmlRenderer(search, data):
             <title>Local Server</title>
             <style>
                 input[type="text"],
-                input[type="password"],
-                textarea {
+                textarea {{
                     border: none;
                     outline: none;
                     border-bottom: 2px solid white;
-            }
+            }}
             </style>
         </head>
         <body style="background-color: #1a1a1a">

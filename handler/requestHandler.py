@@ -14,19 +14,27 @@ def handleMethod(request):
     method = request.split()[0]
     path = request.split()[1]
 
-    methods = {
-        "GET": {
-            "function": handleGET,
-            "params": (path)
-        },
-        "POST": {
-            "function": handlePOST,
-            "params": (request)
-        }
-    }
+    if method == "GET":
+        return handleGET(path)
+    elif method == "POST":
+        return handlePOST(request)
+    else:
+        return "Method Not Allowed"
+    
+    # methods = {
+    #     "GET": {
+    #         "function": handleGET,
+    #         "params": (path)
+    #     },
+    #     "POST": {
+    #         "function": handlePOST,
+    #         "params": (request)
+    #     }
+    # }
 
-    try:
-        method_handler = methods[method]
-        return method_handler["function"](method_handler["params"])
-    except KeyError:
-        return "Method Not Allowed"  
+    # try:
+    #     method_handler = methods[method]
+    #     print(method_handler)
+    #     return method_handler["function"](method_handler["params"])
+    # except KeyError:
+    #     return "Method Not Allowed"  
