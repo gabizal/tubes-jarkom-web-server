@@ -13,7 +13,6 @@ def handleRequest(request):
 def handleMethod(request):
     method = request.split()[0]
     path = request.split()[1]
-
     if method == "GET":
         return handleGET(path)
     elif method == "POST":

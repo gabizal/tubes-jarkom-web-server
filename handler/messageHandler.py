@@ -1,18 +1,21 @@
 def htmlRenderer(search, data):
-    database_file = {
-        "pdf": [name for name in data if name.split(".")[:1] == "pdf"],
-        "txt": [name for name in data if name.split(".")[:1] == "txt"],
-        "mp3": [name for name in data if name.split(".")[:1] == "mp3"],
-        "mp4": [name for name in data if name.split(".")[:1] == "mp4"],
-        "image": [name for name in data if name.split(".")[:1] == "jpg" or name.split(".")[:1] == "png" or name.split(".")[:1] == "jpeg"],
-        "document": [name for name in data if name.split(".")[:1] == "docx" or name.split(".")[:1] == "pptx" or name.split(".")[:1] == "xlsx" or name.split(".")[:1] == "doc" or name.split(".")[:1] == "ppt" or name.split(".")[:1] == "xls"],
-        "archive": [name for name in data if name.split(".")[:1] == "zip" or name.split(".")[:1] == "rar"],
-        "code": [name for name in data if name.split(".")[:1] == "html" or name.split(".")[:1] == "css" or name.split(".")[:1] == "js" or name.split(".")[:1] == "py"]
+
+    extensions = {
+        "pdf": ["pdf"],
+        "txt": ["txt"],
+        "mp3": ["mp3"],
+        "mp4": ["mp4"],
+        "image": ["jpg", "png", "jpeg"],
+        "document": ["docx", "pptx", "xlsx", "doc", "ppt", "xls"],
+        "archive": ["zip", "rar"],
+        "code": ["html", "css", "js", "py"]
     }
 
+    database_file = {k: [name for name in data if name.split(".")[-1] in v] for k, v in extensions.items()}
+    print(database_file)
     database_icon ={
         "pdf": "pdf",
-        "txt": "alt",
+        "txt": "lines",
         "mp3": "audio",
         "mp4": "video",
         "image": "image",
@@ -21,16 +24,18 @@ def htmlRenderer(search, data):
     }
 
     file_icon = """
-    <div>
-        <i class="fa-solid fa-file-{}" style="color: #c7c9cc;"></i>
+    <div class="flex flex-col items-center gap-2">
+        <i class="fa fa-solid fa-file-{} fa-2xl" style="color: #bdbfc1;"></i>
         <h5 style="font-family: 'Comic Sans MS';" class="text-white pt-2 text-center">{}</h5>
     </div>
     """
+    list_file = ""
 
     for key in database_file:
-        for value in database_file[key]:
-            file_icon += file_icon.format(database_icon[key], value)
-    print(file_icon)
+        if len(database_file[key]) > 0:
+            for value in database_file[key]:
+                list_file += file_icon.format(database_icon[key], value)
+    
 
     html_body = """
         <!DOCTYPE html>
@@ -39,7 +44,7 @@ def htmlRenderer(search, data):
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
             <script src="https://cdn.tailwindcss.com"></script>
             <title>Local Server</title>
             <style>
@@ -62,10 +67,10 @@ def htmlRenderer(search, data):
                         <button type="Submit" class="ml-2 h-8 text-justify rounded-md p-1 bg-neutral-100 text-black">Search</button>
                     </form>
                 </div>
-                <div class="p-3 text-2xl" style="font-family: 'Comic Sans MS';">
+                <div class="p-3 text-2xl pb-5" style="font-family: 'Comic Sans MS';">
                     Result Search for {}
                 </div>
-                <div class="p-5 grid grid-cols-4 gap-4">
+                <div class="p-5 grid grid-cols-4 gap-3 ">
                     {}
                 </div>
                 <div class="p-1 h-96 w-96">
@@ -76,5 +81,5 @@ def htmlRenderer(search, data):
         </html>
     """
 
-    html_body = html_body.format(search, file_icon)
+    html_body = html_body.format(search, list_file)
     return html_body

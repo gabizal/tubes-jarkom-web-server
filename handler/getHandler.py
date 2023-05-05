@@ -1,6 +1,7 @@
 def handleGET(path):
     path_dict = {
         "/": "views/index.html",
+        "/index.html": "views/index.html",
         "/files.html": "views/files.html"
     }
 
