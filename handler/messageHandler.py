@@ -70,7 +70,7 @@ def htmlRenderer(search, data):
                 <div class="p-3 text-2xl pb-5" style="font-family: 'Comic Sans MS';">
                     Result Search for {}
                 </div>
-                <div class="p-5 grid grid-cols-4 gap-3 ">
+                <div class="p-5 grid grid-cols-4 gap-3 gap-y-6">
                     {}
                 </div>
                 <div class="p-1 h-96 w-96">
