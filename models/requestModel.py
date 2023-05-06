@@ -1,6 +1,5 @@
 class Request:
     def __init__(self, decodedRequest: str):
-        print(decodedRequest)
         request = ''.join((line + '\n') for line in decodedRequest.splitlines())
         request_head, request_body = request.split('\n\n', 1)
 
