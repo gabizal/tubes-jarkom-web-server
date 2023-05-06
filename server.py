@@ -15,7 +15,7 @@ def threadingSocket(connectionSocket):
 if __name__ == "__main__":
     serverSocket = socket(AF_INET, SOCK_STREAM)
     serverAddress = "localhost"
-    serverPort = 80
+    serverPort = 666
 
     # reuse port
     serverSocket.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
