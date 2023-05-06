@@ -24,11 +24,14 @@ def htmlRenderer(search, data):
     }
 
     file_icon = """
-    <div class="flex flex-col items-center gap-2">
-        <i class="fa fa-solid fa-file-{} fa-2xl" style="color: #bdbfc1;"></i>
-        <h5 style="font-family: 'Comic Sans MS';" class="text-white pt-2 text-center">{}</h5>
+    <div class="flex flex-col items-center gap-2 hover:bg-cyan-500 hover:rounded-lg">
+        <a href="database/{}" target="blank">
+            <i class="fa fa-solid fa-file-{} fa-2xl" style="color: #bdbfc1;"></i>
+            <h5 style="font-family: 'Comic Sans MS';" class="text-white pt-2 text-center">{}</h5>
+        </a>
     </div>
     """
+    list_link = []
     list_file = ""
 
     for key in database_file:
