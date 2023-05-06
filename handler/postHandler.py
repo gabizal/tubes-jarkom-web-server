@@ -2,10 +2,7 @@ import os
 from handler.messageHandler import *
 
 def handlePOST(request_body: str):
-    print(request_body)
     search = request_body.split("\n")[3].replace("\r", "")
-    print(request_body)
-    print(search)
     result = []
     files = os.listdir('./database')
     for name in files:
