@@ -1,9 +1,8 @@
 import os
 from handler.messageHandler import *
 
-def handlePOST(request):
-    search = request.split("\n")[25].replace("\r", "")
-    print(type(search))
+def handlePOST(request_body: str):
+    search = request_body.split("\n")[2].replace("\r", "")
     result = []
     files = os.listdir('./database')
     for name in files:
