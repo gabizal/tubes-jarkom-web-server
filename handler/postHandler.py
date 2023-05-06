@@ -6,7 +6,7 @@ def handlePOST(request_body: str):
     result = []
     files = os.listdir('./database')
     for name in files:
-        if search in name:
+        if search.lower() in name.lower():
             result.append(name)
    
 
