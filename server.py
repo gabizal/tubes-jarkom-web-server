@@ -1,8 +1,6 @@
 import threading
 from socket import *
-from handler.getHandler import *
-from handler.postHandler import *
-from handler.requestHandler import *
+from handler.requestHandler import handleRequest
 
 def threadingSocket(connectionSocket):
     try:
@@ -24,6 +22,7 @@ if __name__ == "__main__":
 
     serverSocket.bind((serverAddress, serverPort))
     serverSocket.listen(5)
+    
     #prepare server socket
     print(f"\n\nYou can Acces Your Website in http://{serverAddress}:{serverPort}\n\n")
     while True:
