@@ -37,7 +37,7 @@ def htmlRenderer(search, data):
     for key in database_file:
         if len(database_file[key]) > 0:
             for value in database_file[key]:
-                list_file += file_icon.format(database_icon[key], value)
+                list_file += file_icon.format(value, database_icon[key], value)
     
 
     html_body = """
