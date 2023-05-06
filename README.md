@@ -41,6 +41,10 @@ http://localhost:80
 ```
 ## Screenshots
 
-![App Screenshot](https://i.ibb.co/NCf9hpY/Home.png)
+![App Screenshot](https://i.ibb.co/ph4jdcV/Search.png)
 
-![App Screenshot](https://i.ibb.co/JK3QzLT/Search.png)
+![App Screenshot](https://i.ibb.co/Kyxhfnq/File-Found-1.png)
+
+![App Screenshot](https://i.ibb.co/G38V7VJ/File-Not-Found.png)
+
+![App Screenshot](https://i.ibb.co/hZ630YD/404.png)
