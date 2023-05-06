@@ -35,7 +35,7 @@ cd tubes-jarkom-web-server
 ```bash
 Python server.py
 ```
-* You can Acces Your Website in 
+* You can Acces Your Website in:
 ```bash
 http://localhost:80
 ```
