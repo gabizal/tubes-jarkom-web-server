@@ -12,7 +12,7 @@ def htmlRenderer(search, data):
     }
 
     database_file = {k: [name for name in data if name.split(".")[-1] in v] for k, v in extensions.items()}
-    print(database_file)
+    # print(database_file)
     database_icon ={
         "pdf": "pdf",
         "txt": "lines",
