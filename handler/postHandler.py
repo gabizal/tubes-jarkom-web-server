@@ -1,13 +1,15 @@
 import os
-from handler.messageHandler import *
+from views.layouts.FilePage import FilePage
+from views.MainLayout import MainLayout
 
 def handlePOST(request_body: str):
-    search = request_body.split("\n")[3].replace("\r", "")
+    search = request_body.split("value=")[1].replace("\r", "").replace("\n", "")
+    
     result = []
     files = os.listdir('./database')
     for name in files:
         if search.lower() in name.lower():
             result.append(name)
    
-
-    return htmlRenderer(search, result)
+    page = MainLayout(FilePage(search, result))
+    return page

@@ -20,79 +20,24 @@
 
     <style>
       @font-face {
-        font-family: Thunder;
-        src: url('../assets/Thunder-BlackLC.ttf');
+        font-family: 'Thunder';
+        src: url('/assets/Thunder-BlackLC.ttf');
       }
 
       * {
         font-family: 'Poppins', sans-serif;
         font-weight: 400;
       }
+
       input[type='text'],
       textarea {
         border: none;
         outline: none;
       }
     </style>
-    <title>Local Server</title>
+    <title>Kessoku Database</title>
   </head>
   <body style="background-color: #7e22ce" class="flex flex-col min-h-screen items-center">
-    <div class="max-w-3xl w-full items-center">
-      <div class="flex flex-col w-full">
-        <div class="flex flex-col items-start self-center w-[600px] pt-[160px]">
-          <span class="text-[172px] self-start leading-[75%] uppercase text-white" style="font-family: 'Thunder', sans-serif" class="text-[178px] text-white py-10">
-            Kessoku <br />
-            Database
-          </span>
-          <div class="flex flex-row py-[12px] px-[16px] items-center rounded-xl shrink self-start" style="background-color: #984ed8">
-            <i class="fa fa-solid fa-home fa-md mr-[16px]" style="color: #fff"></i>
-            <span class="flex item-center content-center text-white">Back to home</span>
-          </div>
-        </div>
-      </div>
-      <div class="mt-[60px] px-[24px] py-[12px] w-full rounded-xl" style="background-color: #984ed8">
-        <form action="" method="POST" enctype="multipart/form-data" class="flex justify-center items-center grow">
-          <input
-            type="text"
-            id="searchFile"
-            name="searchFile"
-            style="background-color: transparent"
-            class="border-b-0 text-black rounded-full flex grow placeholder-white placeholder-opacity-50 text-white"
-            placeholder="Cari file disini"
-            required
-          />
-          <button type="Submit" class="p-2.5 rounded-full">
-            <i class="fa fa-solid fa-magnifying-glass fa-lg" style="color: #fff"></i>
-          </button>
-        </form>
-      </div>
-      <div class="pt-[60px]">
-        <div class="flex flex-row px-[12px] text-white">
-          <div class="basis-4/5">Name</div>
-          <div class="basis-1/5">Size</div>
-        </div>
-        <div class="flex flex-row p-[12px] text-white mt-[16px] rounded-xl" style="background-color: #984ed8">
-          <div class="basis-4/5 flex flex-row">
-            <i class="fa fa-solid fa-file fa-lg pt-[12px] pr-[16px]" style="color: #fff"></i>
-            <div class="gorw">Name</div>
-          </div>
-          <div class="basis-1/5">Size</div>
-        </div>
-        <div class="flex flex-row ml-[-24px] mb-[100px] text-white mt-[60px] w-full justify-center">
-          <div class="flex flex-row py-[8px] items-center pl-[10px] pr-[16px] ml-[24px] rounded-full" style="background-color: #984ed8">
-            <img src="https://avatars.githubusercontent.com/u/67363390?v=4" alt="Profile Galih" width="28" height="28" class="rounded-full mr-[10px]" />
-            <span class="flex item-center content-center">whoisgalih</span>
-          </div>
-          <div class="flex flex-row py-[8px] items-center pl-[10px] pr-[16px] ml-[24px] rounded-full" style="background-color: #984ed8">
-            <img src="https://avatars.githubusercontent.com/u/67363390?v=4" alt="Profile Galih" width="28" height="28" class="rounded-full mr-[10px]" />
-            <span class="flex item-center content-center">whoisgalih</span>
-          </div>
-          <div class="flex flex-row py-[8px] items-center pl-[10px] pr-[16px] ml-[24px] rounded-full" style="background-color: #984ed8">
-            <img src="https://avatars.githubusercontent.com/u/67363390?v=4" alt="Profile Galih" width="28" height="28" class="rounded-full mr-[10px]" />
-            <span class="flex item-center content-center">whoisgalih</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="max-w-3xl w-full items-center">%s</div>
   </body>
 </html>
