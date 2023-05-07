@@ -1,4 +1,5 @@
 from os import listdir
+from views.layouts.FilePage import FilePage
 from views.layouts.HomePage import HomePage
 from views.layouts.MainLayout import MainLayout
 
@@ -7,7 +8,7 @@ class Routes:
     def __init__(self):
         self.routes = {
             "/": (MainLayout, HomePage),
-            "/files.html": (MainLayout, HomePage),
+            "/files": (MainLayout, FilePage),
         }
 
         self.updateFile()
