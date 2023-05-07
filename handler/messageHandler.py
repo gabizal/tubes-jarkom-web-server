@@ -1,3 +1,3 @@
-from views.layouts.MainLayout import HomePage
+from views.layouts.MainLayout import MainLayout
 def htmlRenderer(search, data):
-    return HomePage(search, data)
+    return MainLayout(search, data)

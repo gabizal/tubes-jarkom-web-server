@@ -5,12 +5,13 @@ def handleGET(path):
     routes = routesM.routes
 
     try:
-        file_name = routes[path]
-        file = open(file_name, 'r')
+        page = routes[path]
+        file = page[0](page[1]())
+        # file = open(file_name, 'r')
     except (FileNotFoundError, KeyError):
         file = open("views/404.html", 'r')    
 
-    message_body = file.read()
-    file.close()
+    # message_body = file.read()
+    # file.close()
 
-    return message_body
+    return str(file)

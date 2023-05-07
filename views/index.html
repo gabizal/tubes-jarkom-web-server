@@ -1,41 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <title>Local Server</title>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet" />
+
     <style>
-        input[type="text"],
-        textarea {
-            border: none;
-            outline: none;
-            border-bottom: 2px solid white;
+      @font-face {
+        font-family: Thunder;
+        src: url('../assets/Thunder-BlackLC.ttf');
+      }
+
+      * {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+      }
+      input[type='text'],
+      textarea {
+        border: none;
+        outline: none;
       }
     </style>
-</head>
-<body style="background-color: #1a1a1a">
-    <div class="flex flex-col items-center text-white">
-        <div style="font-family: 'Comic Sans MS';" class="pt-20 text-4xl">
-            Kessoku Database
+    <title>Local Server</title>
+  </head>
+  <body style="background-color: #7e22ce" class="flex flex-col min-h-screen items-center">
+    <div class="max-w-3xl w-full items-center">
+      <div class="flex flex-col w-full">
+        <div class="flex flex-col items-start self-center w-[600px] pt-[160px]">
+          <span class="text-[172px] self-start leading-[75%] uppercase text-white" style="font-family: 'Thunder', sans-serif" class="text-[178px] text-white py-10">
+            Kessoku <br />
+            Database
+          </span>
+          <div class="flex flex-row py-[12px] px-[16px] items-center rounded-xl shrink self-start" style="background-color: #984ed8">
+            <i class="fa fa-solid fa-home fa-md mr-[16px]" style="color: #fff"></i>
+            <span class="flex item-center content-center text-white">Back to home</span>
+          </div>
         </div>
-        <div class="h-64 w-64 pt-10 ">
-            <img src="https://i.ibb.co/sP4WyFK/kessoku.png" alt="Kessoku Logo">
+      </div>
+      <div class="mt-[60px] px-[24px] py-[12px] w-full rounded-xl" style="background-color: #984ed8">
+        <form action="" method="POST" enctype="multipart/form-data" class="flex justify-center items-center grow">
+          <input type="text" id="searchFile" name="searchFile" style="background-color: transparent" class="border-b-0 text-black rounded-full flex grow placeholder-white" placeholder="Cari file disini" required />
+          <button type="Submit" class="p-2.5 rounded-full">
+            <i class="fa fa-solid fa-magnifying-glass fa-lg" style="color: #fff"></i>
+          </button>
+        </form>
+      </div>
+      <div class="pt-[60px]">
+        <div class="flex flex-row px-[12px] text-white">
+          <div class="basis-4/5">Name</div>
+          <div class="basis-1/5">Size</div>
         </div>
-        <div class="pt-10 px-10">
-            <form action="" method="POST" enctype="multipart/form-data">
-                <input type="text" id="searchFile" name="searchFile" style="background-color: #1a1a1a;" class="border-b-4" size="50" required>
-                <button type="Submit" class="ml-2 h-8 text-justify rounded-md p-1 bg-neutral-100 text-black">Search</button>
-            </form>
+        <div class="flex flex-row p-[12px] text-white mt-[16px] rounded-xl" style="background-color: #984ed8">
+          <div class="basis-4/5 flex flex-row">
+            <i class="fa fa-solid fa-file fa-lg pt-[12px] pr-[16px]" style="color: #fff"></i>
+            <div class="gorw">Name</div>
+          </div>
+          <div class="basis-1/5">Size</div>
         </div>
-        <div class="p-3 pt-4">
-            <a href="./files.html" class="p-2 bg-neutral-100 text-black rounded-md">Show All Files</a>
+        <div class="flex flex-row ml-[-24px] mb-[100px] text-white mt-[60px] w-full justify-center">
+          <div class="flex flex-row py-[8px] items-center pl-[10px] pr-[16px] ml-[24px] rounded-full" style="background-color: #984ed8">
+            <img src="https://avatars.githubusercontent.com/u/67363390?v=4" alt="Profile Galih" width="28" height="28" class="rounded-full mr-[10px]" />
+            <span class="flex item-center content-center">whoisgalih</span>
+          </div>
+          <div class="flex flex-row py-[8px] items-center pl-[10px] pr-[16px] ml-[24px] rounded-full" style="background-color: #984ed8">
+            <img src="https://avatars.githubusercontent.com/u/67363390?v=4" alt="Profile Galih" width="28" height="28" class="rounded-full mr-[10px]" />
+            <span class="flex item-center content-center">whoisgalih</span>
+          </div>
+          <div class="flex flex-row py-[8px] items-center pl-[10px] pr-[16px] ml-[24px] rounded-full" style="background-color: #984ed8">
+            <img src="https://avatars.githubusercontent.com/u/67363390?v=4" alt="Profile Galih" width="28" height="28" class="rounded-full mr-[10px]" />
+            <span class="flex item-center content-center">whoisgalih</span>
+          </div>
         </div>
-        <div class="p-1 h-96 w-96">
-            <img src="https://i.ibb.co/gt4PXS7/member.jpg" alt="Member Kessoku">
-        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
