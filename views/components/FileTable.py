@@ -13,8 +13,7 @@ def FileTable(filesName: list):
     }
 
     database_file = {k: [name for name in filesName if name.split(".")[-1] in v] for k, v in extensions.items()}
-    print(database_file)
-    # print(database_file)
+
     database_icon ={
         "pdf": "pdf",
         "txt": "lines",
@@ -34,15 +33,13 @@ def FileTable(filesName: list):
                 icon = "file-" + database_icon[fileType]
             except KeyError:
                 icon = "file"
-            # icon, name, size
-            fileTableItems += fileTableItem % (icon, file, os.path.getsize("database/"+file))
+            # name, icon, name, size
+            fileTableItems += fileTableItem % (file, icon, file, os.path.getsize("database/"+file))
     
     fileTable = open("views/components/html/fileTable.html", "r")
     table = fileTable.read()
     fileTable.close()
 
     table = table % fileTableItems
-
-    print(table)
 
     return table

@@ -1,7 +1,6 @@
 def Title(title):
-    html_title = """
-    <div style="font-family: 'Thunder', sans-serif;" class="text-[178px] text-white py-10">
-        %s
-    </div>
-    """
-    return html_title % title
+    titleFile = open("views/components/html/title.html", "r")
+    titlePage = titleFile.read()
+    titleFile.close()
+    
+    return titlePage % title

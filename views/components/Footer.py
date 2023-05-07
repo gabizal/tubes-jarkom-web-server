@@ -21,7 +21,8 @@ def Footer():
     footerItems = ""
 
     for user in dev_data:
-        footerItems += footerItem % (user["profile"], user["altf"], user["github"])
+        # username, picture, alt, username
+        footerItems += footerItem % (user["github"], user["profile"], user["altf"], user["github"])
     
     footers = open("views/components/html/footerWrapper.html", "r").read()
 
