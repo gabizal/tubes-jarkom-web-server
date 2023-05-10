@@ -6,7 +6,7 @@ def FileTable(filesName: list):
         "txt": ["txt"],
         "mp3": ["mp3"],
         "mp4": ["mp4"],
-        "image": ["jpg", "png", "jpeg"],
+        "image": ["jpg", "png", "jpeg","webp"],
         "document": ["docx", "pptx", "xlsx", "doc", "ppt", "xls"],
         "archive": ["zip", "rar"],
         "code": ["html", "css", "js", "py"]
