@@ -5,8 +5,8 @@ from handler.requestHandler import handleRequest
 def threadingSocket(connectionSocket):
     try:
         request = connectionSocket.recv(1024).decode()
-        response = handleRequest(request)
-        connectionSocket.send(response.encode())
+        response: bytes = handleRequest(request)
+        connectionSocket.send(response)
         connectionSocket.close()
     except IOError:
         connectionSocket.send("File Not Found".encode())
