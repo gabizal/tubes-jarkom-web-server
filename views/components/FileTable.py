@@ -24,7 +24,9 @@ def FileTable(filesName: list):
         "archive": "archive",
     }
     
-    fileTableItem = open("views/components/html/fileTableItem.html", "r").read()
+    fileTableItemHTML = open("views/components/html/fileTableItem.html", "r")
+    fileTableItem = fileTableItemHTML.read()
+    fileTableItemHTML.close()
     fileTableItems = ""
 
     for fileType, files in database_file.items():
@@ -36,6 +38,11 @@ def FileTable(filesName: list):
             # name, icon, name, size
             fileTableItems += fileTableItem % (file, icon, file, os.path.getsize("database/"+file))
     
+    if fileTableItems == "":
+        filesNotFoundHTML = open("views/components/html/fileNotFound.html", "r")
+        fileTableItems = filesNotFoundHTML.read()
+        filesNotFoundHTML.close()
+
     fileTable = open("views/components/html/fileTable.html", "r")
     table = fileTable.read()
     fileTable.close()
