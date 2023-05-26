@@ -11,9 +11,13 @@ class Handler:
     @staticmethod
     def SearchPage(request: Request):
         searchKey: str = request.body["value"]
-        result = []
+
         files = os.listdir("database")
+
+        result = []
         for name in files:
             if searchKey.lower() in name.lower():
                 result.append(name)
+
+        result.sort()
         return Response.fromText(FilePage(files=result, search=searchKey))

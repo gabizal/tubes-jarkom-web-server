@@ -56,9 +56,8 @@ def FileTable(filesName: list):
             )
 
     if fileTableItems == "":
-        filesNotFoundHTML = open("views/components/html/fileNotFound.html", "r")
-        fileTableItems = filesNotFoundHTML.read()
-        filesNotFoundHTML.close()
+        with open("views/components/html/fileNotFound.html", "r") as filesNotFoundHTML:
+            fileTableItems = filesNotFoundHTML.read()
 
     with open("views/components/html/fileTable.html", "r") as fileTable:
         table = fileTable.read()
