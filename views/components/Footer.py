@@ -17,7 +17,6 @@ def Footer():
         },
     ]
 
-    # footerItem = open("views/components/html/footerItem.html", "r").read()
     with open("views/components/html/footerItem.html", "r") as footerItemFile:
         footerItem = footerItemFile.read()
     footerItems = ""
@@ -31,7 +30,6 @@ def Footer():
             user["github"],
         )
 
-    # footers = open("views/components/html/footerWrapper.html", "r").read()
     with open("views/components/html/footerWrapper.html", "r") as footerWrapperFile:
         footers = footerWrapperFile.read()
 

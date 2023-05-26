@@ -28,11 +28,9 @@ def FileTable(filesName: list):
         "archive": "archive",
     }
 
-    # fileTableItemHTML = open("views/components/html/fileTableItem.html", "r")
-    # fileTableItem = fileTableItemHTML.read()
-    # fileTableItemHTML.close()
     with open("views/components/html/fileTableItem.html", "r") as fileTableItemHTML:
         fileTableItem = fileTableItemHTML.read()
+
     fileTableItems = ""
 
     for fileType, files in database_file.items():
@@ -56,10 +54,6 @@ def FileTable(filesName: list):
 
     with open("views/components/html/fileTable.html", "r") as fileTable:
         table = fileTable.read()
-
-    # fileTable = open("views/components/html/fileTable.html", "r")
-    # table = fileTable.read()
-    # fileTable.close()
 
     table = table % fileTableItems
 
