@@ -1,0 +1,21 @@
+TCP stands for Transmission Control Protocol. It is one of the core protocols of the Internet Protocol Suite, commonly referred to as TCP/IP. TCP is responsible for providing reliable, connection-oriented communication between devices over an IP-based network.
+
+Here are some key characteristics and features of TCP:
+
+1. Reliable Communication: TCP ensures reliable communication by providing error detection, acknowledgement of received data, and retransmission of lost or corrupted packets. It guarantees that data is delivered in the correct order and without errors.
+
+2. Connection-Oriented: TCP establishes a connection between the sending and receiving devices before data transmission. This connection is established through a three-way handshake process, where both devices exchange control messages to synchronize and establish the connection.
+
+3. Flow Control: TCP incorporates flow control mechanisms to manage the rate of data transmission between sender and receiver. It prevents the receiver from being overwhelmed by regulating the amount of data sent based on the receiver's ability to process it.
+
+4. Congestion Control: TCP utilizes congestion control techniques to manage network congestion. It monitors the network for signs of congestion, adjusts the rate of data transmission, and ensures fairness and efficiency in the use of network resources.
+
+5. Byte-oriented: TCP treats data as a stream of bytes rather than individual packets. It breaks down the application data into smaller segments and numbers them for proper sequencing and reassembly at the receiving end.
+
+6. Full-Duplex Communication: TCP enables simultaneous bidirectional communication between devices, allowing data to be transmitted in both directions at the same time.
+
+7. Port-Based Communication: TCP uses port numbers to identify specific applications or services running on devices. It enables multiple applications to establish simultaneous connections to different ports on a device.
+
+8. Connection Termination: TCP provides a graceful connection termination process through a four-way handshake. Both devices exchange control messages to close the connection properly, ensuring that all data is delivered and acknowledged before termination.
+
+TCP is widely used in various applications and services that require reliable and ordered delivery of data, such as web browsing, email, file transfer, and real-time streaming. It works in conjunction with the Internet Protocol (IP) to enable communication across different networks, forming the foundation of the TCP/IP protocol suite that powers the Internet.

@@ -1,6 +1,15 @@
 import os
 
-def FileTable(filesName: list): 
+
+def humanReadableSize(num):
+    for unit in ["bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB"]:
+        if abs(num) < 1024.0:
+            return f"{num:3.1f}{unit}"
+        num /= 1024.0
+    return f"{num:.1f}YB"
+
+
+def FileTable(filesName: list):
     extensions = {
         "pdf": ["pdf"],
         "txt": ["txt"],
@@ -9,12 +18,15 @@ def FileTable(filesName: list):
         "image": ["jpg", "png", "jpeg"],
         "document": ["docx", "pptx", "xlsx", "doc", "ppt", "xls"],
         "archive": ["zip", "rar"],
-        "code": ["html", "css", "js", "py"]
+        "code": ["html", "css", "js", "py"],
     }
 
-    database_file = {k: [name for name in filesName if name.split(".")[-1] in v] for k, v in extensions.items()}
+    database_file = {
+        k: [name for name in filesName if name.split(".")[-1] in v]
+        for k, v in extensions.items()
+    }
 
-    database_icon ={
+    database_icon = {
         "pdf": "pdf",
         "txt": "lines",
         "mp3": "audio",
@@ -23,10 +35,10 @@ def FileTable(filesName: list):
         "document": "word",
         "archive": "archive",
     }
-    
-    fileTableItemHTML = open("views/components/html/fileTableItem.html", "r")
-    fileTableItem = fileTableItemHTML.read()
-    fileTableItemHTML.close()
+
+    with open("views/components/html/fileTableItem.html", "r") as fileTableItemHTML:
+        fileTableItem = fileTableItemHTML.read()
+
     fileTableItems = ""
 
     for fileType, files in database_file.items():
@@ -36,16 +48,20 @@ def FileTable(filesName: list):
             except KeyError:
                 icon = "file"
             # name, icon, name, size
-            fileTableItems += fileTableItem % (file, icon, file, os.path.getsize("database/"+file))
-    
+            fileTableItems += fileTableItem % (
+                file,
+                icon,
+                file,
+                humanReadableSize(os.path.getsize("database/" + file)),
+            )
+
     if fileTableItems == "":
         filesNotFoundHTML = open("views/components/html/fileNotFound.html", "r")
         fileTableItems = filesNotFoundHTML.read()
         filesNotFoundHTML.close()
 
-    fileTable = open("views/components/html/fileTable.html", "r")
-    table = fileTable.read()
-    fileTable.close()
+    with open("views/components/html/fileTable.html", "r") as fileTable:
+        table = fileTable.read()
 
     table = table % fileTableItems
 
