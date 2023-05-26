@@ -31,11 +31,11 @@ class Request:
         self.headers = self.parseHeaders(headersRaw)
         self.body = self.parseBody(bodyRaw)
 
-        print("headers:", self.headers)
-        print("body:", self.body)
+        # print("headers:", self.headers)
+        # print("body:", self.body)
 
     def parseHeaders(self, headersRaw: str):
-        return dict(x.split(": ", 1) for x in headersRaw[1:])
+        return dict(x.split(": ", 1) for x in headersRaw.split("\r\n"))
 
     def parseBody(self, body):
         return dict([x.split("=") for x in body.split("&")] if body else "")
