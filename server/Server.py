@@ -50,6 +50,7 @@ class Server:
             return self.routes[request.path](request)
 
         fileName = request.path.split("/file/")[-1]
+        fileName = fileName.replace("%20", " ")  # for space in file name
         files = os.listdir(self.rootDir)
         if fileName in files:
             return bytes(Response.fromFile(self.rootDir + "/" + fileName))

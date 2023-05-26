@@ -1,0 +1,21 @@
+The OSI (Open Systems Interconnection) model is a conceptual framework that standardizes and describes the functions of a communication system or network. It was developed by the International Organization for Standardization (ISO) in the late 1970s and early 1980s. The purpose of the OSI model is to provide a common language and structure for network communication, allowing different systems to communicate with each other effectively.
+
+The OSI model consists of seven layers, each representing a specific function or set of functions in the communication process. Here are the seven layers of the OSI model:
+
+1. Physical Layer: The physical layer is responsible for transmitting raw unstructured data bits over a physical medium, such as cables or wireless signals. It deals with electrical, mechanical, and physical aspects of the network.
+
+2. Data Link Layer: The data link layer provides error-free transfer of data frames between adjacent nodes on the same network. It ensures that data is transmitted reliably and handles error detection and correction. This layer is divided into two sublayers: the Media Access Control (MAC) layer and the Logical Link Control (LLC) layer.
+
+3. Network Layer: The network layer is responsible for the logical addressing and routing of data packets between different networks. It determines the best path for data transmission, performs routing functions, and handles congestion control.
+
+4. Transport Layer: The transport layer ensures reliable and transparent end-to-end data delivery between hosts. It provides services such as segmentation, flow control, error recovery, and reassembly of data. The transport layer can be connection-oriented (TCP - Transmission Control Protocol) or connectionless (UDP - User Datagram Protocol).
+
+5. Session Layer: The session layer establishes, manages, and terminates communication sessions between devices. It enables synchronization, checkpointing, and recovery of data exchange between applications.
+
+6. Presentation Layer: The presentation layer deals with data representation and ensures that information exchanged between systems is in a format that the receiving system can understand. It handles tasks such as data encryption, compression, and formatting.
+
+7. Application Layer: The application layer is the topmost layer of the OSI model and provides a means for end-user applications to access network services. It includes protocols for specific applications such as email (SMTP - Simple Mail Transfer Protocol), web browsing (HTTP - Hypertext Transfer Protocol), and file transfer (FTP - File Transfer Protocol).
+
+It's important to note that the OSI model is a conceptual framework and does not directly dictate the design or implementation of network protocols. However, it serves as a reference model that helps network designers and developers understand and describe how different network protocols and technologies interact and fit into the larger network architecture.
+
+While the OSI model is not the only model used in networking (the TCP/IP model is widely used as well), it is still valuable for its layered approach and its ability to provide a common framework for understanding and discussing network communication.
