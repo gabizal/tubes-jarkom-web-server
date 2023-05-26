@@ -1,6 +1,14 @@
 import os
 
 
+def humanReadableSize(num):
+    for unit in ["bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB"]:
+        if abs(num) < 1024.0:
+            return f"{num:3.1f}{unit}"
+        num /= 1024.0
+    return f"{num:.1f}YB"
+
+
 def FileTable(filesName: list):
     extensions = {
         "pdf": ["pdf"],
@@ -44,7 +52,7 @@ def FileTable(filesName: list):
                 file,
                 icon,
                 file,
-                os.path.getsize("database/" + file),
+                humanReadableSize(os.path.getsize("database/" + file)),
             )
 
     if fileTableItems == "":
