@@ -13,7 +13,7 @@ def FileTable(filesName: list):
     extensions = {
         "pdf": ["pdf"],
         "txt": ["txt"],
-        "mp3": ["mp3"],
+        "mp3": ["mp3", "ogg", "wav"],
         "mp4": ["mp4"],
         "image": ["jpg", "png", "jpeg"],
         "document": ["docx", "pptx", "xlsx", "doc", "ppt", "xls"],

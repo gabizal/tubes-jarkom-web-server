@@ -36,7 +36,7 @@ class Server:
             if clientRequest:
                 clientSock.sendall(self.handleRequest(clientAddr, clientRequest))
 
-    def addRoute(self, path, handler):
+    def addRoute(self, path: str, handler: callable):
         """Add custom route and handler"""
         self.routes[path] = handler
 
