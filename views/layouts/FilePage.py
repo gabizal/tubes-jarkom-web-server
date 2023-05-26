@@ -1,8 +1,5 @@
-from views.root.Root import Root
-from views.components.Footer import Footer
-from views.components.Search import Search
-from views.components.FileTable import FileTable
-from views.components.Title import Title
+from views.root import Root
+from views.components import Footer, Title, Search, FileTable
 
 
 def FilePage(search: str = "", files: list = []):

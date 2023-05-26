@@ -1,6 +1,5 @@
-from views.root.Root import Root
-from views.components.Footer import Footer
-from views.components.Title import Title
+from views.root import Root
+from views.components import Footer, Title
 
 
 def ErrorPage(code: int = 404, message: str = "Not Found"):

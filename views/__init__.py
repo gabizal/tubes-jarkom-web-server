@@ -1,3 +1,3 @@
-from views.layouts.ErrorPage import ErrorPage
-from views.layouts.FilePage import FilePage
-from views.layouts.HomePage import HomePage
+from views.root import Root
+from views.components import Footer, Title, Search, FileTable
+from views.layouts import HomePage, FilePage, ErrorPage

@@ -1,6 +1,6 @@
 import mimetypes
 
-from views.layouts.ErrorPage import ErrorPage
+from views import ErrorPage
 
 
 class Response:
@@ -39,7 +39,6 @@ class Response:
     @staticmethod
     def fromFile(path: str) -> bytes:
         try:
-            print(path)
             with open(path, "rb") as f:
                 data = f.read()
 

@@ -1,10 +1,6 @@
-import threading
-import socket
+import threading, socket, os
 
-from models.Request import Request
-from models.Response import Response
-
-import threading, socket, os, re
+from models import Request, Response
 
 
 class Server:
