@@ -1,4 +1,4 @@
-from views.MainLayout import MainLayout
+from views.root.Root import Root
 from views.components.Footer import Footer
 from views.components.Search import Search
 from views.components.FileTable import FileTable
@@ -12,4 +12,4 @@ def FilePage(search: str = "", files: list = []):
     footer = Footer()
 
     page = title + search + fileTable + footer
-    return MainLayout(page)
+    return Root(page)

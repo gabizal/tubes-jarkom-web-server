@@ -1,6 +1,6 @@
 import mimetypes
 
-from views.layouts.page404 import page404
+from views.layouts.ErrorPage import ErrorPage
 
 
 class Response:
@@ -33,27 +33,31 @@ class Response:
             return "Unknown"
 
     @staticmethod
-    def defineContentType(path):
+    def defineContentType(path) -> str:
         return mimetypes.guess_type(path)[0] or "text/plain"
 
     @staticmethod
-    def fromFile(path: str):
+    def fromFile(path: str) -> bytes:
         try:
             print(path)
             with open(path, "rb") as f:
                 data = f.read()
 
             contentType: str = Response.defineContentType(path)
-            return Response(
-                200, data, {"Content-Type": contentType, "Content-Length": len(data)}
+            return bytes(
+                Response(
+                    200,
+                    data,
+                    {"Content-Type": contentType, "Content-Length": len(data)},
+                )
             )
         except FileNotFoundError:
             return Response.errorResponse()
 
     @staticmethod
     def fromText(text: str) -> bytes:
-        return Response(200, text.encode(), {"Content-Type": "text/html"})
+        return bytes(Response(200, text.encode(), {"Content-Type": "text/html"}))
 
     @staticmethod
     def errorResponse() -> bytes:
-        return Response(404, page404().encode(), {"Content-Type": "text/html"})
+        return bytes(Response(404, ErrorPage().encode(), {"Content-Type": "text/html"}))

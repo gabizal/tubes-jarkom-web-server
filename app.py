@@ -33,9 +33,9 @@
 
 
 import os
-from models.requestModel import Request
-from models.responseModel import Response
-from models.serverModel import Server
+from models.Request import Request
+from models.Response import Response
+from models.Server import Server
 from views.layouts.FilePage import FilePage
 from views.layouts.HomePage import HomePage
 

@@ -1,8 +1,8 @@
 import threading
 import socket
 
-from models.requestModel import Request
-from models.responseModel import Response
+from models.Request import Request
+from models.Response import Response
 
 import threading, socket, os, re
 
