@@ -19,5 +19,4 @@ class Handler:
             if searchKey.lower() in name.lower():
                 result.append(name)
 
-        result.sort()
         return Response.fromText(FilePage(files=result, search=searchKey))
