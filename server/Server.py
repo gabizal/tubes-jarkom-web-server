@@ -2,6 +2,7 @@ import threading, socket, os, time, random
 
 from models import Request, Response
 
+#clientCount = 1
 
 class Server:
     
@@ -46,10 +47,14 @@ class Server:
         """Handling request data from client"""
         request = Request(request) # Membuat objek request dari data request client
 
-        """Menambahkan delay untuk Test Multi-Threaded"""
+        """
+        #Menambahkan delay untuk Test Multi-Threaded#
+        global clientCount
         randomTime = random.randint(1, 5)
         time.sleep(randomTime) # Menambahkan delay untuk simulasi
-        print(f"Client {{{addr[0]}:{addr[1]} | method='{request.method}', path='{request.path}', Time Delay = {randomTime}s}}")
+        print(f"Client {clientCount} {{{addr[0]}:{addr[1]} | method='{request.method}', path='{request.path}', Time Delay = {randomTime}s}}")
+        clientCount += 1
+        """
 
         if request.path in self.routes:
             return self.routes[request.path](request) # Menjalankan handler dari route yang diminta
