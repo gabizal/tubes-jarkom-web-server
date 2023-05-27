@@ -1,4 +1,4 @@
-import threading, socket, os
+import threading, socket, os, time, random
 
 from models import Request, Response
 
@@ -22,7 +22,7 @@ class Server:
         self.server.bind((self.host, self.port)) # Binding host dan port
         self.server.listen(self.maxConnections) # Listen for incoming connections
 
-        print(f"Server is running on http://{self.host}:{self.port}")
+        print(f"\nServer is running on http://{self.host}:{self.port}\n\n")
 
         while True:
             clientConnection = self.server.accept() # Menerima koneksi dari client
@@ -46,7 +46,10 @@ class Server:
         """Handling request data from client"""
         request = Request(request) # Membuat objek request dari data request client
 
-        print(f"{addr}: {request.method=}, {request.path=}")
+        """Menambahkan delay untuk Test Multi-Threaded"""
+        randomTime = random.randint(1, 5)
+        time.sleep(randomTime) # Menambahkan delay untuk simulasi
+        print(f"Client {{{addr[0]}:{addr[1]} | method='{request.method}', path='{request.path}', Time Delay = {randomTime}s}}")
 
         if request.path in self.routes:
             return self.routes[request.path](request) # Menjalankan handler dari route yang diminta
