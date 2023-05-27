@@ -13,20 +13,20 @@ class Response:
         self.headers: dict = headers or {}
 
     def __str__(self):
-        """Return response as string. Used for debugging"""
+        """Mengembalikan response sebagai string. Digunakan untuk debugging"""
 
-        # Return response as string
+        # Return response sebagai string
         return (
             f"HTTP/1.1 {self.status} {self.statusText(self.status)}\r\n"  # Status line
             + "".join(
                 [f"{key}: {value}\r\n" for key, value in self.headers.items()]
             )  # Headers
-            + "\r\n"  # Newline between headers and body
+            + "\r\n"  # Newline diantara headers dan body
             + self.data.decode()  # Body
         )
 
     def __bytes__(self):
-        """Return response as bytes. Used to send response to client"""
+        """Mengembalikan response sebagai bytes. Digunakan untuk mengirim response ke client"""
         statusLine = (
             f"HTTP/1.1 {self.status} {self.statusText(self.status)}\r\n"  # Status line
         )
@@ -38,7 +38,7 @@ class Response:
         )  # Response
 
     def statusText(self, status: int) -> str:
-        """Return status text from status code"""
+        """Mengembalikan status code sebagai teks"""
         if status == 200:
             return "OK"
         elif status == 404:
@@ -49,36 +49,35 @@ class Response:
     # Using static method because it doesn't need to create instance
     @staticmethod
     def defineContentType(path) -> str:
-        """Return content type from path"""
+        """Mengembalikan content type dari path"""
         return mimetypes.guess_type(path)[0] or "text/plain"  # Return content type
 
     @staticmethod
     def fromFile(path: str) -> bytes:
-        """Return response from file"""
+        """Mengembalikan response dari file"""
 
-        # Try to open file
+        # Mencoba membuka file
         try:
-            # Open file, read file, and close file
             with open(path, "rb") as f:
                 data = f.read()  # Read file
 
-            # Define content type from path
+            # Menentukan content type dari path
             contentType: str = Response.defineContentType(path)
 
-            # Return response as bytes
+            # Mengembalikan response sebagai bytes
             return bytes(
                 Response(
                     200,  # Status code
-                    data,  # Data from file in bytes
+                    data,  # Data dari file dalam bytes
                     {
                         "Content-Type": contentType,
                         "Content-Length": len(data),
                     },  # Headers
                 )
             )
-        # If file not found
+        # Jika file tidak ditemukan
         except FileNotFoundError:
-            return Response.errorResponse()  # Return error response
+            return Response.errorResponse()  # Mengembalikan error response
 
     @staticmethod
     def fromText(text: str) -> bytes:

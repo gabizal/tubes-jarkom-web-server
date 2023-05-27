@@ -1,6 +1,6 @@
 class Request:
     def __init__(self, buffer: str) -> None:
-        """Create request object from buffer"""
+        """Membuat object request dari buffer"""
 
         # Split buffer to request line and data
         # Request line is the first line of the request
@@ -23,14 +23,14 @@ class Request:
         self.body = self.parseBody(bodyRaw)  # Parse body
 
     def parseHeaders(self, headersRaw: str):
-        """Create dictionary from headers. Parse headers as key and value"""
+        """Membuat dictionary dari headers. Parse headers sebagai key dan value"""
 
-        # Split headers to list of headers by \r\n (newline)
+        # Split headers to list of headers by "\r\n"
         # Then split each header to key and value by ": "
         return dict(x.split(": ", 1) for x in headersRaw.split("\r\n"))
 
     def parseBody(self, body):
-        """Create dictionary from body. Parse body as key and value"""
+        """Membuat dictionary dari body. Parse body sebagai key dan value"""
 
         # Split body to list of body by "&" (ampersand)
         # Then split each body to key and value by "=" (equal)
