@@ -74,6 +74,7 @@ class Server:
                 request
             )  # Call handler function and return response
 
+
         # If route not found, look for file in database
         fileName = request.path.split("/file/")[-1]  # Get file name from path
         fileName = fileName.replace("%20", " ")  # Replace %20 with space
