@@ -38,10 +38,18 @@ http://localhost:80
 ```
 ## Screenshots
 
-![App Screenshot](https://i.ibb.co/ph4jdcV/Search.png)
+![App Screenshot](https://i.ibb.co/h8N02hD/Screenshot-2023-05-28-at-16-47-20.png)
 
-![App Screenshot](https://i.ibb.co/Kyxhfnq/File-Found-1.png)
+![App Screenshot](https://i.ibb.co/108yLk7/Screenshot-2023-05-28-at-16-47-44.png)
 
-![App Screenshot](https://i.ibb.co/G38V7VJ/File-Not-Found.png)
+![App Screenshot](https://i.ibb.co/pJSz6gZ/Screenshot-2023-05-28-at-16-48-11.png)
 
-![App Screenshot](https://i.ibb.co/hZ630YD/404.png)
+![App Screenshot](https://i.ibb.co/2vMhdZ3/Screenshot-2023-05-28-at-16-48-18.png)
+
+![App Screenshot](https://i.ibb.co/rw92SsR/Screenshot-2023-05-28-at-16-48-36.png)
+
+![App Screenshot](https://i.ibb.co/LxrDt77/Screenshot-2023-05-28-at-16-50-21.png)
+
+![App Screenshot](https://i.ibb.co/v1kCWxw/Screenshot-2023-05-28-at-16-50-38.png)
+
+![App Screenshot](https://i.ibb.co/0Qk2XTQ/Screenshot-2023-05-28-at-16-51-27.png)
