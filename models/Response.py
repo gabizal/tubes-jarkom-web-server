@@ -8,9 +8,9 @@ class Response:
         """Initialize response"""
 
         # Set response object properties
-        self.status: int = status
-        self.data: bytes = data
-        self.headers: dict = headers or {}
+        self.status: int = status  # Response status code
+        self.data: bytes = data  # Response body in bytes
+        self.headers: dict = headers or {}  # Response headers
 
     def __str__(self):
         """Mengembalikan response sebagai string. Digunakan untuk debugging"""
