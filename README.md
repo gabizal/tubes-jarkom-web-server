@@ -16,26 +16,23 @@ Web server project that involves implementing TCP sockets and HTTP protocol.
 
 - Search by Name
 - Search by Extension
-- Create File
-- Read File
-- Update File
-- Delete File
+- Read File [Image, Video, Document, Audio]
 ## Installation
 Steps to run Code
 
 * Clone the repository.
 ```bash
-git clone https://github.com/gabizal/tubes-jarkom-web-server.git
+git clone https://github.com/whoisgalih/tubes-jarkom-web-server.git
 ```
-* Goto the cloned folder.
+* Go to the cloned folder.
 ```bash
 cd tubes-jarkom-web-server
 ```
-* Run the code with mentioned command below.
+* Open Terminal and run the code with mentioned command below.
 ```bash
-Python server.py
+Python app.py
 ```
-* You can Acces Your Website in:
+* Open browser and you can acces your website in:
 ```bash
 http://localhost:80
 ```
