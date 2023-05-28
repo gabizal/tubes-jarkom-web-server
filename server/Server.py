@@ -24,6 +24,7 @@ class Server:
         self.server.setsockopt(
             socket.SOL_SOCKET, socket.SO_REUSEADDR, 1
         )  # Reuse socket address
+        self.server.bind((self.host, self.port))  # Bind socket to host and port
         self.server.listen(self.maxConnections)  # Listen for incoming connections
 
         # Print server info
@@ -73,7 +74,6 @@ class Server:
             return self.routes[request.path](
                 request
             )  # Call handler function and return response
-
 
         # If route not found, look for file in database
         fileName = request.path.split("/file/")[-1]  # Get file name from path
