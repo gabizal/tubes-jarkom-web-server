@@ -1,6 +1,8 @@
-import threading, socket, os
+import threading, socket, os, time, random
 
 from models import Request, Response
+
+# clientCount = 1
 
 
 class Server:
@@ -25,7 +27,7 @@ class Server:
         self.server.listen(self.maxConnections)  # Listen for incoming connections
 
         # Print server info
-        print(f"Server is running on http://{self.host}:{self.port}")
+        print(f"\nServer is running on http://{self.host}:{self.port}\n\n")
 
         # Server loop
         while True:
@@ -57,11 +59,21 @@ class Server:
         # Print request info
         print(f"{addr}: {request.method=}, {request.path=}")
 
+        """
+        #Menambahkan delay untuk Test Multi-Threaded#
+        global clientCount
+        randomTime = random.randint(1, 5)
+        time.sleep(randomTime) # Menambahkan delay untuk simulasi
+        print(f"Client {clientCount} {{{addr[0]}:{addr[1]} | method='{request.method}', path='{request.path}', Time Delay = {randomTime}s}}")
+        clientCount += 1
+        """
+
         # Look for route handler
         if request.path in self.routes:
             return self.routes[request.path](
                 request
             )  # Call handler function and return response
+
 
         # If route not found, look for file in database
         fileName = request.path.split("/file/")[-1]  # Get file name from path
