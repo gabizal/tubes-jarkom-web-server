@@ -22,6 +22,7 @@ class Server:
         self.server.setsockopt(
             socket.SOL_SOCKET, socket.SO_REUSEADDR, 1
         )  # Reuse socket address
+        self.server.bind((self.host, self.port))  # Bind socket to host and port
         self.server.listen(self.maxConnections)  # Listen for incoming connections
 
         # Print server info
